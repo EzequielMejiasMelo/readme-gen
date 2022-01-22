@@ -108,10 +108,67 @@ function renderTableOfContents(install, usage, guidelines, tests, license){
 }
 
 // Function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+function generateMarkdown({title, username, email, description, install, usage, guidelines, tests, license}) {
+  let markdownDoc = 
+  `# ${title}
+  ${renderLicenseBadge(license)}
+  
+  ## Description
+  
+  ${description}
+  
+  `
 
-`;
+  markdownDoc += renderTableOfContents(install, usage, guidelines, tests, license);
+
+  if (install !== ""){
+    markdownDoc +=
+    `
+    
+## Installation
+    
+${install}`;
+  };
+
+  if (usage !== ""){
+    markdownDoc +=
+    `
+    
+  ## Usage
+    
+  ${usage}`;
+  };
+
+  if (guidelines !== ""){
+    markdownDoc +=
+    `
+    
+  ## Guidelines
+    
+  ${guidelines}`;
+  };
+
+  if (tests !== ""){
+    markdownDoc +=
+    `
+    
+  ## Tests
+    
+  ${tests}`;
+  };
+
+  markdownDoc += renderLicenseSection(license);
+
+  markdownDoc +=
+  `
+  
+  ## Support
+  
+  Contact me if you have any questions
+  - GitHub: [@${username}](https://github.com/${username})
+  - Email: [${email}](${email})`
+
+  return markdownDoc;
 }
 
 module.exports = generateMarkdown;
