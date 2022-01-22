@@ -80,7 +80,34 @@ function renderLicenseSection(license) {
   return section; 
 }
 
-// TODO: Create a function to generate markdown for README
+// Function that returns the Table of Contents section
+// return a string if none of the sections are used
+function renderTableOfContents(install, usage, guidelines, tests, license){
+  let tableOfContents = `## Table of Contents`;
+  if (install !== "") {
+    tableOfContents += `
+  * [Installation](#installation)`
+  };
+  if (usage !== "") {
+    tableOfContents += `
+  * [Usage](#usage)`
+  };
+  if (guidelines !== "") {
+    tableOfContents += `
+  * [Guidelines](#guidelines)`
+  };
+  if (tests !== "") {
+    tableOfContents += `
+  * [Tests](#tests)`
+  };
+  if (license !== "No License (N/A)"){
+    tableOfContents += `
+  * [License](#license)`
+  };
+  return tableOfContents === `## Table of Contents`? "" : tableOfContents;
+}
+
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
