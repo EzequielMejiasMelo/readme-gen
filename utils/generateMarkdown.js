@@ -134,27 +134,27 @@ ${install}`;
     markdownDoc +=
     `
     
-  ## Usage
+## Usage
     
-  ${usage}`;
+${usage}`;
   };
 
   if (guidelines !== ""){
     markdownDoc +=
     `
     
-  ## Guidelines
+## Guidelines
     
-  ${guidelines}`;
+${guidelines}`;
   };
 
   if (tests !== ""){
     markdownDoc +=
     `
     
-  ## Tests
+## Tests
     
-  ${tests}`;
+${tests}`;
   };
 
   markdownDoc += renderLicenseSection(license);
