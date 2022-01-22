@@ -16,11 +16,24 @@ const questions = [
     {type:'list', choices: ['No License (N/A)', 'MIT License', 'GNU AGPLv3', 'GNU GPLv3', 'The Unlicense', 'Mozilla Public License 2.0', 'Apache License 2.0'], name: 'license'}
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (error) => {
+        if (error) {
+            return console.log(error);
+        }
 
-// TODO: Create a function to initialize app
-function init() {}
+        console.log("Complete! Your README file has been created!");
+    });
+}
+
+// Function to initialize app
+function init() {
+    inquirer.prompt(questions).then(response => {
+        const markdownText = generateMarkdown(response);
+        writeToFile('GeneratedREADME.md', markdownText);
+    });
+}
 
 // Function call to initialize app
 init();
