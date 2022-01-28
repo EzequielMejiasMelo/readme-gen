@@ -3,7 +3,7 @@
   
   ## Description
   
-  A 9-5 day planner implemented using jQuery and Moment.js. Based on the current hour, rows will change colors with GREY being a past hour, RED being the current hour, and GREEN being an upcoming hour. After adding a task to the hour of your choosing you can save to come back to it.
+  A CLI application created to generate a README file based on user input. This application implements the `Inquirer` module from `Node.js`
   
   ## Table of Contents
   * [Installation](#installation)
@@ -14,15 +14,15 @@
     
 First, you have to use `git clone` to create a local copy of the repository on your file system. Run `npm install` to install all of the necessary dependencies identified in `package.json`.
 
-To start the application, run `node index.js` in the command line. Answer the prompts so your README file contains information. Once answered, your README file will be named `README.md` and will be located in the same folder as `index.js`.
+To start the application, run `node index.js` in the command line. Answer the prompts by providing the team information so the profiles can be created. Once answered, your HTML file will be named `README.md` and will be located in the repository.
     
 ## Usage
 
-![A user runs a command line application, answers the prompts, and a markdown file is generated.](./readme-demo.gif)
+![A user entering info into the command line and a markdown file is generated.](./readme-demo.gif)
 
 When you run `node index.js`, the application uses `inquirer` package to prompt you in the command line. One these are entered, the reponses are passed to he application to generate the markdown. The generation for the Table of Contents also takes into account your reponses and will not created sections that you did not provide an answer for.
 
-Lastly, the `fs` module will then write the generated markdown to your project's `README.md` file. See my example name `GeneratedREADME.md` located in the repsoitory.
+Lastly, the `fs` module will then write the generated markdown to your project's `README.md` file. See my example name `GeneratedREADME.md` located in the repository.
     
   
   ## License
